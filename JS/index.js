@@ -6,7 +6,7 @@ app.use(express.json());
 
 app.listen(3000, () => console.log('Node backend is Running! Waiting for your command sir!'));
 
-app.post('/sha256', (req, res) => {
+app.post('nodejs/sha256', (req, res) => {
     const data = req.body;
     const a = data.a;
     const b = data.b;
