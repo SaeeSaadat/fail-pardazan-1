@@ -14,13 +14,4 @@ app.post('/sha256', (req, res) => {
     res.json({
         c: sha256(`${c}`)
     });
-    // res.json({
-    //     c: sha256(c)
-    // });
-})
-
-app.get('/index', (request, response) => {
-    response.json({
-        body: "<h1> salam <h1/>"
-    });
 })
