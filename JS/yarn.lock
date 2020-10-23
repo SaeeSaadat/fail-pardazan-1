@@ -2749,6 +2749,11 @@ npm-run-path@^4.0.0:
   dependencies:
     path-key "^3.0.0"
 
+nthline@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/nthline/-/nthline-1.0.2.tgz#89b7d8cfd11f6502a7bb9751dbea4249774de414"
+  integrity sha512-8RFu9qRI4dcSj38LP4db3IZ1Lb24aM8VZJhTVdHtwBJN/PVYIIxm5lmbK3sVSvPlXQmiruncbrJ9C7d1/FFZRA==
+
 nwsapi@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
