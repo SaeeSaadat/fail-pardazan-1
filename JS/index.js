@@ -9,10 +9,13 @@ app.use(express.json());
 app.listen(3000, () => console.log('Node backend is Running! Waiting for your command sir!'));
 
 app.post('/nodejs/sha256', (req, res) => {
-    console.log("POST request for sha256 received");
+    console.log("POST request for nodejs/sha256 received");
     const data = req.body;
     const a = data.a;
     const b = data.b;
+    if (!a || !b) {
+        return res.status(400).send({message: "Wrong arguments inside the response body!"});
+    }
     if (!(!isNaN(a) && !isNaN(b))) {
         res.status(400).send({message: "user inputs must be numbers"});
         return;
@@ -25,7 +28,11 @@ app.post('/nodejs/sha256', (req, res) => {
 })
 
 app.get('/nodejs/write', (req, res) => {
+    console.log("GET request for nodejs/write received");
     const line = req.query.line;
+    if (!line) {
+        return res.status(400).send({message: 'Wrong arguments inside the response body! missing {line}'})
+    }
     if (isNaN(line) || Number(line) < 1 || Number(line) > 100) {
         return res.status(400).send({message: 'line must be a number between 1 - 100'});
     }
