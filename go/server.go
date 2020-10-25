@@ -70,7 +70,7 @@ func writeHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	file, _ := os.Open("file.txt")
+	file, _ := os.Open("../file.txt")
 	scanner := bufio.NewScanner(file)
 
 	result, _, _ := ReadLine(scanner, lineNumber)
