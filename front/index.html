@@ -18,25 +18,27 @@
         <form id="post-form" action="post">
             <div id='x'>
                 <label for="input-a">A:</label>
-                <input type="number" name="input-a" placeholder="value of A" autofocus>
+                <input id="number_A" type="number" name="input-a" placeholder="value of A" autofocus>
             </div>
             <div id='x'>
                 <label for="input-a">B:</label>
-                <input type="number" name="input-a" placeholder="value of B">
+                <input id="number_B" type="number" name="input-a" placeholder="value of B">
             </div>
             <div id="submits-container">
-                <input type="submit" class="btn btn-success submit-post-btn" value="Node.JS">
-                <input type="submit" class="btn btn-info submit-post-btn" value="GO">
+                <button id="post_node_btn" class="btn btn-success submit-btn">Node.JS</button>
+                <button id="post_go_btn" class="btn btn-info submit-btn">GO</button>
             </div>
         </form>
         <form id="get-form" action="get">
             <label id="light-label" for="input-line">Select Line:</label>
             <input id="input-line" name="input-line" type="number" min="0" max="100">
             <div id="submits-container">
-                <input type="submit" class="btn btn-success submit-post-btn" value="Node.JS">
-                <input type="submit" class="btn btn-info submit-post-btn" value="GO">
+                <button class="btn btn-success submit-btn">Node.JS</button>
+                <button class="btn btn-info submit-btn">GO</button>
             </div>
         </form>
+        <div id="result">
+        </div>
     </div>
 </body>
 <script src="./scripts.js"></script>
