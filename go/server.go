@@ -78,8 +78,8 @@ func writeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/sha", shaHandler)
-	http.HandleFunc("/write", writeHandler)
+	http.HandleFunc("/go/sha", shaHandler)
+	http.HandleFunc("/go/write", writeHandler)
 
 	fmt.Printf("Starting server at port 8080\n")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
