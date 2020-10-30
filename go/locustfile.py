@@ -14,8 +14,8 @@ class WebsiteTestUser(HttpUser):
 
     # @task(1)
     # def hello_world(self):
-    #     self.client.get("http://localhost:8080/write?line=3")
+    #     self.client.get("http://192.168.1.8/go/write?line=56")
 
     @task(1)
     def hello_world(self):
-        self.client.post("http://localhost:8080/sha", json.dumps({"A":4, "B":6}))
+        self.client.post("http://192.168.1.8/go/sha", json.dumps({"A":4, "B":6}))
