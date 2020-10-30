@@ -23,7 +23,7 @@ document.getElementById('post_node_btn').addEventListener('click', event => {
         method: "POST",
         body: JSON.stringify(data)
     }).then(res => {
-        document.getElementById('result').innerHTML = res
+        document.getElementById('result').innerHTML = res.c
     })
     console.log(JSON.stringify({a: numebr_A, b: numebr_B}))
 })
@@ -39,7 +39,7 @@ document.getElementById('post_go_btn').addEventListener('click', event => {
         method: "POST",
         body: JSON.stringify(data)
     }).then(res => {
-        document.getElementById('result').innerHTML = res
+        document.getElementById('result').innerHTML = res.Result
     })
     console.log(JSON.stringify({a: numebr_A, b: numebr_B}))
 })
