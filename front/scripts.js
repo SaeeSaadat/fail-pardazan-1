@@ -43,3 +43,32 @@ document.getElementById('post_go_btn').addEventListener('click', event => {
     })
     console.log(JSON.stringify({a: numebr_A, b: numebr_B}))
 })
+
+
+document.getElementById('get_node_btn').addEventListener('click' , event => {
+    event.preventDefault()
+    let line_numebr = document.getElementById('input-line').value
+    let request = new XMLHttpRequest()
+    path = `host­ip/nodejs/write?line=${line_numebr}`
+    request.open('GET', path, true)
+
+    request.onload = function(){
+        document.getElementById('result').innerHTML = this.responseText
+    }
+
+    request.send()
+})
+
+document.getElementById('get_node_btn').addEventListener('click' , event => {
+    event.preventDefault()
+    let line_numebr = document.getElementById('input-line').value
+    let request = new XMLHttpRequest()
+    path = `host­ip/go/write?line=${line_numebr}`
+    request.open('GET', path, true)
+
+    request.onload = function(){
+        document.getElementById('result').innerHTML = this.responseText
+    }
+
+    request.send()
+})
