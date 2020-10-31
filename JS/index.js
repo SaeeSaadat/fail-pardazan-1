@@ -9,7 +9,7 @@ app.use(express.json());
 app.listen(3000, () => console.log('Node backend is Running! Waiting for your command sir!'));
 
 app.post('/nodejs/sha256', (req, res) => {
-    console.log("POST request for nodejs/sha256 received");
+    console.log("POST request for nodejs/sha256 received: \n" + `${req.body}`);
     const data = req.body;
     const a = data.a;
     const b = data.b;
@@ -28,7 +28,7 @@ app.post('/nodejs/sha256', (req, res) => {
 })
 
 app.get('/nodejs/write', (req, res) => {
-    console.log("GET request for nodejs/write received");
+    console.log("GET request for nodejs/write received :\n" + `${req.query}`);
     const line = req.query.line;
     if (!line) {
         return res.status(400).send({message: 'Wrong arguments inside the response body! missing {line}'})
