@@ -20,7 +20,7 @@ document.getElementById('post_node_btn').addEventListener('click', event => {
     let numebr_A = document.getElementById('number_A').value
     let numebr_B = document.getElementById('number_B').value   
     data = {a: numebr_A, b: numebr_B}
-    fetch(`${hostip}/nodejs/sha256` , {
+    fetch(`http://${hostip}/nodejs/sha256` , {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -39,7 +39,7 @@ document.getElementById('post_go_btn').addEventListener('click', event => {
     let numebr_A = document.getElementById('number_A').value
     let numebr_B = document.getElementById('number_B').value   
     data = {A: numebr_A, B: numebr_B}
-    fetch(`${hostip}/go/sha256` , {
+    fetch(`http://${hostip}/go/sha256` , {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -56,7 +56,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
     let line_numebr = document.getElementById('input-line').value
     let request = new XMLHttpRequest()
-    path = `${hostip}/nodejs/write?line=${line_numebr}`
+    path = `http://${hostip}/nodejs/write?line=${line_numebr}`
     request.open('GET', path, true)
 
     request.onload = function(){
@@ -70,7 +70,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
     let line_numebr = document.getElementById('input-line').value
     let request = new XMLHttpRequest()
-    path = `${hostip}/go/write?line=${line_numebr}`
+    path = `http://${hostip}/go/write?line=${line_numebr}`
     request.open('GET', path, true)
 
     request.onload = function(){
