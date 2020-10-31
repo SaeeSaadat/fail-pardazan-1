@@ -14,6 +14,11 @@ function get() {
     get_form.style.display = "block"
 }
 
+function print_error() {
+    document.getElementById('result').classList.add('error')
+    document.getElementById('result').innerHTML = "Please Enter a Valid Number"
+}
+
 
 document.getElementById('post_node_btn').addEventListener('click', event => {
     event.preventDefault()
@@ -71,7 +76,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     }
 
     request.onerror = function(error) {
-        //handle
+        print_error()
     }
 
     request.send()
@@ -89,7 +94,7 @@ document.getElementById('get_go_btn').addEventListener('click' , event => {
     }
 
     request.onerror = function(error) {
-        //handle
+        print_error
     }
 
     request.send()
