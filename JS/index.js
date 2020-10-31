@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.listen(3000, () => console.log('Node backend is Running! Waiting for your command sir!'));
 
-app.post('/sha256', (req, res) => {
+app.post('/nodejs/sha256', (req, res) => {
     console.log("POST request for nodejs/sha256 received: \n" + `${req.body.a} , ${req.body.b}`);
     const data = req.body;
     const a = data.a;
@@ -27,7 +27,7 @@ app.post('/sha256', (req, res) => {
     res.send();
 })
 
-app.get('/write', (req, res) => {
+app.get('/nodejs/write', (req, res) => {
     console.log("GET request for nodejs/write received :\n" + `${req.query.line}`);
     const line = req.query.line;
     if (!line) {
