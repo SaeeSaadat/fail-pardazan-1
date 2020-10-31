@@ -69,7 +69,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     request.send()
 })
 
-document.getElementById('get_node_btn').addEventListener('click' , event => {
+document.getElementById('get_go_btn').addEventListener('click' , event => {
     event.preventDefault()
     let line_numebr = document.getElementById('input-line').value
     let request = new XMLHttpRequest()
