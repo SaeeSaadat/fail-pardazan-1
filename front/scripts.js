@@ -1,3 +1,5 @@
+var hostip = window.location.hostname;
+
 function post() {
     let post_form = document.getElementById("post-form")
     let get_form = document.getElementById("get-form")
@@ -13,14 +15,16 @@ function get() {
 }
 
 
-
 document.getElementById('post_node_btn').addEventListener('click', event => {
     event.preventDefault()
     let numebr_A = document.getElementById('number_A').value
     let numebr_B = document.getElementById('number_B').value   
     data = {a: numebr_A, b: numebr_B}
-    fetch("host­ip/nodejs/sha256" , {
+    fetch(`${hostip}/nodejs/sha256` , {
         method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
     }).then(res => {
         document.getElementById('result').innerHTML = res.c
@@ -35,8 +39,11 @@ document.getElementById('post_go_btn').addEventListener('click', event => {
     let numebr_A = document.getElementById('number_A').value
     let numebr_B = document.getElementById('number_B').value   
     data = {A: numebr_A, B: numebr_B}
-    fetch("host­ip/go/sha256" , {
+    fetch(`${hostip}/go/sha256` , {
         method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        },
         body: JSON.stringify(data)
     }).then(res => {
         document.getElementById('result').innerHTML = res.Result
@@ -49,7 +56,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
     let line_numebr = document.getElementById('input-line').value
     let request = new XMLHttpRequest()
-    path = `host­ip/nodejs/write?line=${line_numebr}`
+    path = `${hostip}/nodejs/write?line=${line_numebr}`
     request.open('GET', path, true)
 
     request.onload = function(){
@@ -63,7 +70,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
     let line_numebr = document.getElementById('input-line').value
     let request = new XMLHttpRequest()
-    path = `host­ip/go/write?line=${line_numebr}`
+    path = `${hostip}/go/write?line=${line_numebr}`
     request.open('GET', path, true)
 
     request.onload = function(){
