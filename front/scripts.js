@@ -70,6 +70,10 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         document.getElementById('result').innerHTML = this.responseText
     }
 
+    request.onerror = function(error) {
+        //handle
+    }
+
     request.send()
 })
 
@@ -82,6 +86,10 @@ document.getElementById('get_go_btn').addEventListener('click' , event => {
 
     request.onload = function(){
         document.getElementById('result').innerHTML = this.responseText
+    }
+
+    request.onerror = function(error) {
+        //handle
     }
 
     request.send()
