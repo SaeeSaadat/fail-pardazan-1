@@ -38,7 +38,7 @@ app.get('/nodejs/write', (req, res) => {
     }
     nthline(line - 1, '../file.txt').then((text) => {
         console.log(text);
-        return res.json({'text': text}).status(200).send();
+        return res.json(text).status(200).send();
     }).catch((error) => {
         console.error(error);
         return res.status(500).send({message: "couldn't read the line!"});
