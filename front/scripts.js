@@ -29,8 +29,8 @@ document.getElementById('post_node_btn').addEventListener('click', event => {
     }).then(res => {
         res.json().then(res => {
             document.getElementById('result').innerHTML = res.c
-        })
-    })
+        }).catch(error => { // handle })
+    }).catch(error => { // handle })
     console.log(JSON.stringify({a: numebr_A, b: numebr_B}))
 })
 
@@ -50,7 +50,11 @@ document.getElementById('post_go_btn').addEventListener('click', event => {
     }).then(res => {
         res.json().then(res => {
             document.getElementById('result').innerHTML = res.Result
+        }).catch(error => {
+            // handle 
         })
+    }).catch(error => {
+        // handle
     })
 })
 
