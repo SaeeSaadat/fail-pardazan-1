@@ -37,7 +37,6 @@ app.get('/nodejs/write', (req, res) => {
         return res.status(400).send({message: 'line must be a number between 1 - 100'});
     }
     nthline(line - 1, '../file.txt').then((text) => {
-        console.log(text);
         return res.json(text).status(200).send();
     }).catch((error) => {
         console.error(error);
