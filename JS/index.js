@@ -33,12 +33,12 @@ app.get('/nodejs/write', (req, res) => {
     const line = que.line;
     if (!line) {
         // res.status(404).send({message: 'Wrong arguments inside the response body! missing {line}'})
-        res.status(404)
+        res.status(500)
         return;
     }
     if (isNaN(line) || Number(line) < 1 || Number(line) > 100) {
         // res.status(404).send({message: 'line must be a number between 1 - 100'});
-        res.status(404)
+        res.status(500)
         res.send({error: 'line must be a number between 1 - 100'})
         return;
     }
