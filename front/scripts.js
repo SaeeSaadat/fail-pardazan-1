@@ -70,33 +70,33 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
 
     let line_numebr = document.getElementById('input-line').value
-    fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`, {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => {
-        console.log(res)
-        console.log(res.json())
-        document.getElementById('result').innerHTML = res.Result
-        document.getElementById('result').classList.remove('error')
-    }).catch(err => {
-        print_error(err)
-    })
-    // let request = new XMLHttpRequest()
-    // path = `http://${hostip}/nodejs/write?line=${line_numebr}`
-    // request.open('GET', path, true)
-
-    // request.onload = function(){
-    //     document.getElementById('result').innerHTML = this.responseText
+    // fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`, {
+    //     method: "GET",
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    // }).then(res => {
+    //     console.log(res)
+    //     console.log(res.json().)
+    //     document.getElementById('result').innerHTML = res.Result
     //     document.getElementById('result').classList.remove('error')
-    // }
+    // }).catch(err => {
+    //     print_error(err)
+    // })
+    let request = new XMLHttpRequest()
+    path = `http://${hostip}/nodejs/write?line=${line_numebr}`
+    request.open('GET', path, true)
 
-    // request.onerror = function(error) {
-    //     print_error()
-    // }
+    request.onload = function(){
+        document.getElementById('result').innerHTML = this.responseText
+        document.getElementById('result').classList.remove('error')
+    }
 
-    // request.send()
+    request.onerror = function(error) {
+        print_error(error)
+    }
+
+    request.send()
 })
 
 document.getElementById('get_go_btn').addEventListener('click' , event => {
