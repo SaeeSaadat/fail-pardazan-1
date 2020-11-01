@@ -22,6 +22,7 @@ function print_error() {
 
 document.getElementById('post_node_btn').addEventListener('click', event => {
     event.preventDefault()
+    console.log('hereeeeee')
     let numebr_A = document.getElementById('number_A').value
     let numebr_B = document.getElementById('number_B').value   
     data = {a: numebr_A, b: numebr_B}
