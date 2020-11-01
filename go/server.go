@@ -14,8 +14,8 @@ import (
 )
 
 type TwoNum struct {
-	A int
-	B int
+	A int `json:",string"`
+	B int `json:",string"`
 }
 
 type Result struct {
