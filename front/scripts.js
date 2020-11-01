@@ -70,22 +70,21 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
 
     let line_numebr = document.getElementById('input-line').value
-    // fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`, {
-    //     method: "GET",
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // }).then(res => {
-    //     console.log(res)
-    //     console.log(res.json().)
-    //     document.getElementById('result').innerHTML = res.Result
-    //     document.getElementById('result').classList.remove('error')
-    // }).catch(err => {
-    //     print_error(err)
-    // })
-    let request = new XMLHttpRequest()
-    path = `http://${hostip}/nodejs/write?line=${line_numebr}`
-    request.open('GET', path, true)
+    fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`, {
+        method: "GET",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json()).then(res => {
+        console.log(res)
+        document.getElementById('result').innerHTML = res.Result
+        document.getElementById('result').classList.remove('error')
+    }).catch(err => {
+        print_error('booo')
+    })
+    // let request = new XMLHttpRequest()
+    // path = `http://${hostip}/nodejs/write?line=${line_numebr}`
+    // request.open('GET', path, true)
 
     // request.onload = function(){
     //     try {
@@ -97,23 +96,23 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     //     }
     // }
 
-    request.onreadystatechange = function() {
-        if (request.readyState == 4 && request.status == 200) {
-            document.getElementById('result').innerHTML = this.responseText
-            document.getElementById('result').classList.remove('error')
-        }
-    }
+    // request.onreadystatechange = function() {
+    //     if (request.readyState == 4 && request.status == 200) {
+    //         document.getElementById('result').innerHTML = this.responseText
+    //         document.getElementById('result').classList.remove('error')
+    //     }
+    // }
 
-    request.onerror = function(error) {
-        console.log("errrrrorr")
-    }
+    // request.onerror = function(error) {
+    //     console.log("errrrrorr")
+    // }
 
-    try {
-        request.send()
-    } catch(err) {
-        console.log("errrr")
-        // print_error(err)
-    }
+    // try {
+    //     request.send()
+    // } catch(err) {
+    //     console.log("errrr")
+    //     // print_error(err)
+    // }
 })
 
 document.getElementById('get_go_btn').addEventListener('click' , event => {
