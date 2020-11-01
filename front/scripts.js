@@ -80,6 +80,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         document.getElementById('result').innerHTML = res
         document.getElementById('result').classList.remove('error')
     }).catch(err => {
+        console.log(err)
         print_error('booo')
     })
     // let request = new XMLHttpRequest()
