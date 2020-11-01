@@ -45,6 +45,6 @@ app.get('/nodejs/write', (req, res) => {
     }).catch((error) => {
         console.error(error);
         return res.status(500).send({message: "couldn't read the line!"});
+     res.end();
     })
-    res.end();
 })
