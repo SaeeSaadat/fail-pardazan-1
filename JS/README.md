@@ -1,4 +1,5 @@
-NODEJS backend
+#NODEJS backend
+### using express, cors and nthline
 
 runs on port 3000
 requires 'yarn install' for the dependencies to work properly
