@@ -16,7 +16,7 @@ function get() {
 
 function print_error(error) {
     document.getElementById('result').classList.add('error')
-    document.getElementById('result').innerHTML = error.message
+    document.getElementById('result').innerHTML = error
 }
 
 
