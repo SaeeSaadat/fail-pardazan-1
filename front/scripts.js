@@ -77,7 +77,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         }
     }).then(res => res.json()).then(res => {
         console.log(res)
-        document.getElementById('result').innerHTML = res.Result
+        document.getElementById('result').innerHTML = res
         document.getElementById('result').classList.remove('error')
     }).catch(err => {
         print_error('booo')
