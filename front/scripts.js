@@ -76,14 +76,18 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         //     'Content-Type': 'application/json'
         // }
         ).then(res => {
-            if (res.status != 200) {
-                throw new Error('blahblahblah')
+            try {
+                if (res.status != 200) {
+                    throw new Error('blahblahblah')
+                }
+                res.json().then(res => {
+                    console.log(res)
+                    document.getElementById('result').innerHTML = res
+                    document.getElementById('result').classList.remove('error')
+                })
+            } catch (err) {
+                console.log(err)
             }
-            res.json().then(res => {
-                console.log(res)
-                document.getElementById('result').innerHTML = res
-                document.getElementById('result').classList.remove('error')
-            })
         }
         ).catch(err => {
         console.log(err)
