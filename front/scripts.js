@@ -87,20 +87,21 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     path = `http://${hostip}/nodejs/write?line=${line_numebr}`
     request.open('GET', path, true)
 
-    request.onload = function(){
-        try {
-            if (request.readyState == 4 && request.status == 200) {
-                document.getElementById('result').innerHTML = this.responseText
-                document.getElementById('result').classList.remove('error')
-            }
-        } catch(err) {
-            console.log('error on load')
-        }
-    }
+    // request.onload = function(){
+    //     try {
+    //         if (request.readyState == 4 && request.status == 200) {
+                
+    //         }
+    //     } catch(err) {
+    //         console.log('error on load')
+    //     }
+    // }
 
-    request.onloadend = function() {
-        if(request.status == 404 || request.status == 400) 
-            throw new Error('replied 404');
+    request.onreadystatechange = () => {
+        if (request.readyState == 4 && request.status == 200) {
+            document.getElementById('result').innerHTML = this.responseText
+            document.getElementById('result').classList.remove('error')
+        }
     }
 
     request.onerror = function(error) {
