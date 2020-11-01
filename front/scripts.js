@@ -77,7 +77,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         // }
         ).then(res => {
             if (res.status != 200) {
-                return
+                throw new Error('blahblahblah')
             }
             res.json().then(res => {
                 console.log(res)
