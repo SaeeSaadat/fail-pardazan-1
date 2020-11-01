@@ -30,16 +30,21 @@ app.post('/nodejs/sha256', (req, res) => {
 app.get('/nodejs/write', (req, res) => {
     console.log("GET request for nodejs/write received :\n" + `${req.query.line}`);
     const line = req.query.line;
+    console.log("1 -------- ");
     if (!line) {
         return res.status(400).send({message: 'Wrong arguments inside the response body! missing {line}'})
     }
+    console.log("2 -------");
     if (isNaN(line) || Number(line) < 1 || Number(line) > 100) {
         return res.status(400).send({message: 'line must be a number between 1 - 100'});
     }
+    console.log("3 ------");
     nthline(line - 1, '../file.txt').then((text) => {
+        console.log("4 ----- OK ----");
         return res.json(text).status(200).send();
     }).catch((error) => {
         console.error(error);
         return res.status(500).send({message: "couldn't read the line!"});
     })
+    res.end();
 })
