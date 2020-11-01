@@ -75,11 +75,17 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         // headers: {
         //     'Content-Type': 'application/json'
         // }
-        ).then(res => res.json()).then(res => {
-        console.log(res)
-        document.getElementById('result').innerHTML = res
-        document.getElementById('result').classList.remove('error')
-    }).catch(err => {
+        ).then(res => {
+            if (res.status != 200) {
+                return
+            }
+            res.json().then(res => {
+                console.log(res)
+                document.getElementById('result').innerHTML = res
+                document.getElementById('result').classList.remove('error')
+            })
+        }
+        ).catch(err => {
         console.log(err)
         print_error('booo')
     })
