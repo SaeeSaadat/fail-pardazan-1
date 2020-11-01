@@ -106,7 +106,8 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     try {
         request.send()
     } catch(err) {
-        print_error(err)
+        console.log("errrr")
+        // print_error(err)
     }
 })
 
