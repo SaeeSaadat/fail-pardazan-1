@@ -100,7 +100,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     }
 
     request.onerror = function(error) {
-        print_error(JSON.parse(error))
+        console.log("errrrrorr")
     }
 
     try {
