@@ -14,9 +14,9 @@ function get() {
     get_form.style.display = "block"
 }
 
-function print_error() {
+function print_error(error) {
     document.getElementById('result').classList.add('error')
-    document.getElementById('result').innerHTML = "Please Enter a Valid Number"
+    document.getElementById('result').innerHTML = error.message
 }
 
 
@@ -76,11 +76,12 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
             'Content-Type': 'application/json'
         }
     }).then(res => {
+        
         res.json.then(res => {
             console.log(res)
             document.getElementById('result').innerHTML = res.Result
             document.getElementById('result').classList.remove('error')
-        }).catch(errpr => {
+        }).catch(error => {
             print_error()
         })
     })
