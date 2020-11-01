@@ -97,7 +97,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     //     }
     // }
 
-    request.onreadystatechange = () => {
+    request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
             document.getElementById('result').innerHTML = this.responseText
             document.getElementById('result').classList.remove('error')
