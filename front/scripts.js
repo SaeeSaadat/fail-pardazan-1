@@ -96,7 +96,11 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         print_error(JSON.parse(error))
     }
 
-    request.send()
+    try {
+        request.send()
+    } catch(err) {
+        print_error(err)
+    }
 })
 
 document.getElementById('get_go_btn').addEventListener('click' , event => {
