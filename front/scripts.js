@@ -70,13 +70,13 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
 
     let line_numebr = document.getElementById('input-line').value
-    fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`
-        // method: "GET",
-        // headers: {
-        //     'Content-Type': 'application/json'
-        // }
-        ).then(res => {
-            try {
+    try {   
+        fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`
+            // method: "GET",
+            // headers: {
+            //     'Content-Type': 'application/json'
+            // }
+            ).then(res => {
                 if (res.status != 200) {
                     throw new Error('blahblahblah')
                 }
@@ -85,14 +85,14 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
                     document.getElementById('result').innerHTML = res
                     document.getElementById('result').classList.remove('error')
                 })
-            } catch (err) {
-                console.log(err)
             }
-        }
-        ).catch(err => {
-        console.log(err)
-        print_error('booo')
-    })
+            ).catch(err => {
+            console.log(err)
+            print_error('booo')
+        })
+    } catch (err) {
+        console.log('error', err)
+    }
     // let request = new XMLHttpRequest()
     // path = `http://${hostip}/nodejs/write?line=${line_numebr}`
     // request.open('GET', path, true)
