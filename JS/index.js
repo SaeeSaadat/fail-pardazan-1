@@ -39,6 +39,7 @@ app.get('/nodejs/write', (req, res) => {
     if (isNaN(line) || Number(line) < 1 || Number(line) > 100) {
         // res.status(404).send({message: 'line must be a number between 1 - 100'});
         res.status(404)
+        res.send({error: 'line must be a number between 1 - 100'})
         return;
     }
     nthline(line - 1, '../file.txt').then((text) => {
