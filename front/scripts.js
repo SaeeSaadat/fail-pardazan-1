@@ -70,12 +70,12 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     event.preventDefault()
 
     let line_numebr = document.getElementById('input-line').value
-    fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`, {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json()).then(res => {
+    fetch(`http://${hostip}/nodejs/write?line=${line_numebr}`
+        // method: "GET",
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // }
+        ).then(res => res.json()).then(res => {
         console.log(res)
         document.getElementById('result').innerHTML = res
         document.getElementById('result').classList.remove('error')
