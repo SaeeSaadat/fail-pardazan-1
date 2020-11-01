@@ -34,6 +34,7 @@ document.getElementById('post_node_btn').addEventListener('click', event => {
     }).then(res => {
         res.json().then(res => {
             document.getElementById('result').innerHTML = res.c
+            document.getElementById('result').classList.remove('error')
         }).catch(error => { /* handle */ })
     }).catch(error => { /* handle */ })
     console.log(JSON.stringify({a: numebr_A, b: numebr_B}))
@@ -55,6 +56,7 @@ document.getElementById('post_go_btn').addEventListener('click', event => {
     }).then(res => {
         res.json().then(res => {
             document.getElementById('result').innerHTML = res.Result
+            document.getElementById('result').classList.remove('error')
         }).catch(error => {
             // handle 
         })
@@ -73,6 +75,7 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
 
     request.onload = function(){
         document.getElementById('result').innerHTML = this.responseText
+        document.getElementById('result').classList.remove('error')
     }
 
     request.onerror = function(error) {
@@ -91,10 +94,11 @@ document.getElementById('get_go_btn').addEventListener('click' , event => {
 
     request.onload = function(){
         document.getElementById('result').innerHTML = this.responseText
+        document.getElementById('result').classList.remove('error')
     }
 
     request.onerror = function(error) {
-        print_error
+        print_error()
     }
 
     request.send()
