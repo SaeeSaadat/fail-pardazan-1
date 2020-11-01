@@ -88,9 +88,13 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
     request.open('GET', path, true)
 
     request.onload = function(){
-        if (request.readyState == 4 && request.status == 200) {
-            document.getElementById('result').innerHTML = this.responseText
-            document.getElementById('result').classList.remove('error')
+        try {
+            if (request.readyState == 4 && request.status == 200) {
+                document.getElementById('result').innerHTML = this.responseText
+                document.getElementById('result').classList.remove('error')
+            }
+        } catch(err) {
+            console.log('error on load')
         }
     }
 
