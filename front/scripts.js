@@ -94,6 +94,11 @@ document.getElementById('get_node_btn').addEventListener('click' , event => {
         }
     }
 
+    xhr.onloadend = function() {
+        if(xhr.status == 404) 
+            throw new Error(url + ' replied 404');
+    }
+
     request.onerror = function(error) {
         print_error(JSON.parse(error))
     }
