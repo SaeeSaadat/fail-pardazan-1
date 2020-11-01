@@ -29,7 +29,8 @@ app.post('/nodejs/sha256', (req, res) => {
 
 app.get('/nodejs/write', (req, res) => {
     console.log("GET request for nodejs/write received :\n" + `${req.query.line}`);
-    const line = req.query.line;
+    const que = req.query;
+    const line = que.line;
     if (!line) {
         res.status(400).send({message: 'Wrong arguments inside the response body! missing {line}'})
         return;

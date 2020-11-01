@@ -1,0 +1,14 @@
+[Unit]
+Description=nodeserver
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=2s
+User=saee
+#Environment=PORT=80
+ExecStart=/usr/bin/node /home/saee/Web1/JS/index.js
+WorkingDirectory=/home/saee/Web1/JS
+
+[Install]
+WantedBy=multi-user.target
