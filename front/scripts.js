@@ -33,7 +33,7 @@ document.getElementById('post_node_btn').addEventListener('click', event => {
         body: JSON.stringify(data)
     }).then(res => {
         res.json().then(res => {
-            console.log(c)
+            console.log(res)
             document.getElementById('result').innerHTML = res.c
             document.getElementById('result').classList.remove('error')
         }).catch(error => { /* handle */ })
