@@ -12,10 +12,10 @@ class WebsiteTestUser(HttpUser):
         """ on_stop is called when the TaskSet is stopping """
         pass
 
-    # @task(1)
-    # def hello_world(self):
-    #     self.client.get("http://192.168.1.8/go/write?line=56")
-
     @task(1)
     def hello_world(self):
-        self.client.post("http://192.168.1.8/go/sha", json.dumps({"A":4, "B":6}))
+        self.client.get("http://185.110.189.218/go/write?line=56")
+
+    # @task(1)
+    # def hello_world(self):
+    #     self.client.post("http://185.110.189.218/go/sha256", json.dumps({"A":"4", "B":"6"}))

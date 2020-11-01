@@ -2,7 +2,8 @@ package main
 
 import (
 	"bufio"
-	"crypto/sha1"
+	"crypto/sha256"
+	"encoding/hex"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -18,7 +19,7 @@ type TwoNum struct {
 }
 
 type Result struct {
-	Result []byte
+	Result string
 }
 
 func shaHandler(w http.ResponseWriter, r *http.Request) {
@@ -36,10 +37,11 @@ func shaHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	h := sha1.New()
+	h := sha256.New()
 	h.Write([]byte(strconv.Itoa(params.A + params.B)))
-	bs := h.Sum(nil)
-	ans := Result{bs}
+	hash := hex.EncodeToString(h.Sum(nil))
+
+	ans := Result{hash}
 	b, err := json.Marshal(ans)
 
 	fmt.Fprintf(w, "%s", b)
@@ -78,7 +80,7 @@ func writeHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/go/sha", shaHandler)
+	http.HandleFunc("/go/sha256", shaHandler)
 	http.HandleFunc("/go/write", writeHandler)
 
 	fmt.Printf("Starting server at port 8080\n")
